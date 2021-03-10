@@ -202,7 +202,7 @@ if __name__ == "__main__":
     data_path = os.path.join(demo_path, 'data', 'heart.csv')
     dataset = pd.read_csv(data_path)
     run_demo(dataset, 'target')
-    plots_path = os.path.join(demo_path, "plots.png")
+    plots_path = os.path.join(demo_path, "plots/feature_selection.png")
     plt.savefig(plots_path, bbox_inches="tight")
     print("Your plots are saved to {}".format(plots_path))
 
