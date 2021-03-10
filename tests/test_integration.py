@@ -23,7 +23,7 @@ project_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 class IntegrationTests(unittest.TestCase):
 
     def test_mutual_information_feature_selection(self):
-        demo_file = os.path.join(project_dir, 'titanic.py')
+        demo_file = os.path.join(project_dir, 'feature_selection.py')
         p = Popen([sys.executable, demo_file], stdout=PIPE, stdin=PIPE, stderr=STDOUT)    
         p.stdin.write(b'63\n')
         output = p.communicate()[0]

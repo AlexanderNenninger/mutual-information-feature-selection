@@ -23,7 +23,7 @@ from feature_selection import (prob, shannon_entropy, conditional_shannon_entrop
                      mutual_information, conditional_mutual_information)
 
 
-class TestTitanicFunctions(unittest.TestCase):
+class TestFunctions(unittest.TestCase):
     def test_prob(self):
         data = np.array([[True, 0, 4],
                          [True, 2, 3],
@@ -90,12 +90,12 @@ class TestTitanicFunctions(unittest.TestCase):
         pass
 
 
-class TestTitanicDemo(unittest.TestCase):
+class TestDemo(unittest.TestCase):
     def test_run_demo(self):
         """Run smoke test on demo code"""
         # /path/to/demos/mutual-information-feature-selection/
         project_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
         # Raise error when return code is nonzero
-        demo_file = os.path.join(project_dir, 'titanic.py')
+        demo_file = os.path.join(project_dir, 'feature_selection.py')
         subprocess.check_output([sys.executable, demo_file])
