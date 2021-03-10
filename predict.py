@@ -107,7 +107,7 @@ if __name__=='__main__':
         evals.extend(evaluation_ma)
     
     # Save evaluation
-    pd.DataFrame.from_dict(evals).to_csv('output/evals.csv')
+    pd.DataFrame.from_dict(evals).to_pickle('output/evals.pkl')
 
     for i, e in enumerate(evals):
         eval_str = '\n\t'.join(f'{k}: {v}' for k, v in e.items())

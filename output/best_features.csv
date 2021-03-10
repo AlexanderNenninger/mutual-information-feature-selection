@@ -1,0 +1,6 @@
+,features,value
+acc,"(""['age', 'ca', 'chol', 'cp', 'exang', 'fbs', 'oldpeak', 'restecg', 'sex', 'slope', 'thal']"", 'max_entropy')",0.8483870967741935
+prec,"(""['age', 'ca', 'chol', 'cp', 'exang', 'fbs', 'oldpeak', 'restecg', 'sex', 'slope', 'thal']"", 'max_entropy')",0.8625283797729617
+recall,"(""['age' 'ca' 'chol' 'cp' 'exang' 'fbs' 'oldpeak' 'restecg' 'sex' 'slope'\n 'thal' 'thalach' 'trestbps']"", 'mutual_information')",0.8823529411764705
+f1,"(""['age', 'ca', 'chol', 'cp', 'exang', 'fbs', 'oldpeak', 'restecg', 'sex', 'slope', 'thal']"", 'max_entropy')",0.8645703858939152
+roc_auc,"(""['age', 'ca', 'chol', 'cp', 'exang', 'fbs', 'oldpeak', 'restecg', 'sex', 'slope', 'thal']"", 'max_entropy')",0.9220588235294118
