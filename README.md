@@ -16,7 +16,9 @@ redundancy.
 ## Usage
 
 ```bash
-python titanic.py
+python feature_selection.py
+python_predict.py
+python viz.py
 ```
 
 ## Code Overview
