@@ -19,7 +19,7 @@ import unittest
 
 import numpy as np
 
-from bankruptcy import (prob, shannon_entropy, conditional_shannon_entropy,
+from feature_selection import (prob, shannon_entropy, conditional_shannon_entropy,
                      mutual_information, conditional_mutual_information)
 
 
