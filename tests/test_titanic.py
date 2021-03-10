@@ -19,7 +19,7 @@ import unittest
 
 import numpy as np
 
-from titanic import (prob, shannon_entropy, conditional_shannon_entropy,
+from bankruptcy import (prob, shannon_entropy, conditional_shannon_entropy,
                      mutual_information, conditional_mutual_information)
 
 

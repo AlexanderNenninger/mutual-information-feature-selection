@@ -1,5 +1,3 @@
-Data obtained from http://biostat.mc.vanderbilt.edu/DataSets
+Data obtained from https://www.kaggle.com/fedesoriano/company-bankruptcy-prediction.
 
-The original data is in `titanic.csv` and `titanic.txt`. Run 
-```python format_data.py```
-to format the data for the example.
+The original data is in `bankrupcy.csv`
