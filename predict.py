@@ -4,8 +4,9 @@ import pickle as pkl
 import numpy as np
 import pandas as pd
 
-from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import StratifiedShuffleSplit
+from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import roc_auc_score, roc_curve
 
 
@@ -33,11 +34,20 @@ def prepare_data(data: pd.DataFrame, target: str, columns: [str]=None, **split_k
     for train_index, test_index in sss.split(X, y):
         yield X[train_index], y[train_index], X[test_index], y[test_index]
 
+
 def eval_model(data: pd.DataFrame, columns: [str], target: str, classifier, **eval_info) -> [dict]:
     "Stratified crossvalidation on 'columns' of 'data' using 'classifier'"
     
     evals = []
     for X_train, y_train, X_test, y_test in prepare_data(data, target, columns=columns):
+        
+        # Normalize Data before training
+        scaler = StandardScaler()
+        # Don't cheat - fit only on training data
+        scaler.fit(X_train)  
+        X_train = scaler.transform(X_train)  
+        # apply same transformation to test data
+        X_test = scaler.transform(X_test)  
         # Fit classifier
         classifier.fit(X_train, y_train)
         y_proba = classifier.predict_proba(X_test)
@@ -85,11 +95,9 @@ if __name__=='__main__':
     with Path('output/selected_features.pkl').open('rb') as f:
         features, selected_features = pkl.load(f)
 
-    clf = GradientBoostingClassifier(
-        n_estimators=100,
-        learning_rate=1.0,
-        max_depth=1,
-        random_state=0
+    clf = MLPClassifier(
+        hidden_layer_sizes=(20, 20, 10),
+        max_iter=300,
     )
 
     # Ablation Test with increasing number of features - compare max MI-score vs max entropy
