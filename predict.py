@@ -53,7 +53,7 @@ def eval_model(data: pd.DataFrame, columns: [str], target: str, classifier, **ev
         y_proba = classifier.predict_proba(X_test)
         y_pred = classifier.predict(X_test)
         
-        # Calculate performance metrics
+        # Calculate performance metrics - Accuracy, Presicion, Recall, F1, ROC Curve, ROC Area under Curve
         acc = (y_pred == y_test).sum() / len(y_pred)
         prec = (y_pred & y_test).sum() / y_pred.sum()
         recall = (y_pred & y_test).sum() / ((y_pred & y_test).sum() + ((y_pred == 0) & (y_test == 1)).sum())
