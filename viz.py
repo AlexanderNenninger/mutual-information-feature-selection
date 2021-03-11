@@ -26,18 +26,17 @@ best_features = best_features.to_frame().join(maxes)
 best_features.to_csv('output/best_features.csv')
 
 e = evaluation.set_index(['features_str', 'selection_criterion'])
-# Plot ROC Curves
-for idx, data in best_features.iterrows():
-    fig, ax = plt.subplots(1, 2, figsize=(15, 9), sharex=True, sharey=True)
-    
-    fig.suptitle(idx)
-    for fpr, tpr, thresholds in e.loc[data['features'], 'roc_curve']:
-        
-        ax[0].set_title("False positive ROC")
-        ax[0].plot(thresholds, fpr)
-        
-        ax[1].set_title("True positive ROC")
-        ax[1].plot(thresholds, tpr)
 
-    fig.savefig(f'plots/roc_{idx}.png')
-    fig.clf()
+# Plot ROC Curves
+num_metrics = best_features.shape[0]
+fig, ax = plt.subplots(1, num_metrics, figsize=(5*num_metrics, 5), sharex=True, sharey=True)
+for i, (idx, data) in enumerate(best_features.iterrows()):
+    for fpr, tpr, thresholds in e.loc[data['features'], 'roc_curve']:
+        ax[i].set_title(f"ROC of Crossvalidation Runs with best {idx}")
+        ax[i].plot(fpr, tpr)
+        ax[i].set_xlabel("False Positive Rate")
+        ax[i].set_ylabel("True Positive Rate")
+
+plt.tight_layout()
+fig.savefig(f'plots/roc.png')
+fig.clf()
