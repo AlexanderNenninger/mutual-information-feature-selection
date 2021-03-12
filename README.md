@@ -5,13 +5,8 @@
 # MIQUBO Method of Feature Selection
 
 The demo illustrates the MIQUBO method by finding an optimal feature set for
-predicting survival of Titanic passengers. It uses records provided in file
-`formatted_titanic.csv`, which is a feature-engineered version of a public
-database of passenger information recorded by the ship's crew (in addition to a
-column showing survival for each passenger, it contains information on gender,
-title, class, port of embarkation, etc). Its output is a ranking of subsets of
-features that have high MI with the variable of interest (survival) and low
-redundancy.
+predicting strokes. It uses records provided in file
+`heart.csv`.
 
 ## Usage
 
